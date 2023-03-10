@@ -1,0 +1,65 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.container {
+  width: 90vw;
+  min-height: 100vh;
+  background-color: rgb(245, 236, 220);
+  border: 0.4em solid lightgrey;
+  border-radius: 5%;
+  margin: 0 auto;
+}
+.accordion {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 2em;
+}
+.accordion__title {
+  font-weight: bold;
+}
+
+input {
+  opacity: 0;
+  z-index: -1;
+}
+.mems {
+  overflow: hidden;
+}
+.mem {
+  overflow: hidden;
+}
+.mem-content {
+  overflow: hidden;
+  position: relative;
+  max-height: 0;
+  transition: all 0.35s;
+}
+.mem-label {
+  padding-top: 1em;
+  font-size: 80%;
+  font-weight: bold;
+  border-top: 0.2em solid lightgray;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+input:checked + .mem-label {
+  color: blue;
+}
+input:checked + .mem-label > .icon {
+  rotate: 45%;
+}
+input:checked ~ .mem-content {
+  max-height: 100%;
+  padding: 1em;
+}
+.mem-close {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1em;
+  font-size: 0.75em;
+  cursor: pointer;
+}
