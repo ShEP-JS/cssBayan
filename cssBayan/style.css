@@ -48,10 +48,14 @@ input {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  transition: all 0.9s;
 }
-
+.icon {
+  transition: all 0.9s;
+}
 input:checked + .mem-label {
   -webkit-user-select: none;
+  transition: all 0.9s;
 }
 .accordion__mem:active .mem-label {
   color: blue;
