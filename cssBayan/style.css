@@ -126,6 +126,7 @@ img {
   .accordion__title {
     font-weight: bold;
     font-size: 2.5em;
+    z-index: 100;
   }
   .mem-label {
     font-size: 1.2em;
@@ -134,16 +135,18 @@ img {
     display: block;
     margin: 0 auto;
     width: auto;
-    height: 70vh;
+    height: 60vh;
     object-fit: cover;
   }
   input:checked ~ .mem-content {
     max-height: 100vh;
-    padding: 1em;
+    padding: 1.4em;
+    transform: scale(1.1);
   }
   .accordion__mem:hover > .mem-content {
     max-height: 100vh;
-    padding: 1em;
+    padding: 1.4em;
+    transform: scale(1.05);
   }
   .accordion__mem:hover .icon {
     transition: all 0.5s;
