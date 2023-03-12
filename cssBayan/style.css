@@ -1,0 +1,173 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.container {
+  width: 90vw;
+  min-height: 100vh;
+  background-color: rgb(245, 236, 220);
+  border: 0.4em solid lightgrey;
+  margin: 0 auto;
+}
+.accordion {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 1em;
+}
+.accordion__title {
+  font-weight: bold;
+  font-size: 1em;
+}
+.accordion__body {
+  color: blue;
+}
+
+input {
+  opacity: 0;
+  z-index: -1;
+}
+.mems {
+  overflow: hidden;
+}
+.mem {
+  overflow: hidden;
+}
+.mem-content {
+  max-height: 0;
+  padding: 0 1em;
+  overflow: hidden;
+  transform: scale(0);
+  transition: all 0.9s;
+}
+.mem-label {
+  padding-top: 1em;
+  font-size: 70%;
+  font-weight: bold;
+  border-top: 0.2em solid lightgray;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.9s;
+}
+.icon {
+  transition: all 0.9s;
+}
+input:checked + .mem-label {
+  -webkit-user-select: none;
+  transition: all 0.9s;
+}
+.accordion__mem:active .mem-label {
+  color: blue;
+}
+.accordion__mem:active {
+  opacity: 0.6;
+}
+input:checked ~ .mem-label {
+  color: black;
+}
+input:checked + .mem-label > .icon {
+  rotate: 45deg;
+  transition: all 0.5s;
+}
+input:checked ~ .mem-content {
+  max-height: 80vh;
+  padding: 1em;
+  transform: scale(1);
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (min-width: 391px) and (max-width: 576px) {
+  input:checked ~ .mem-content {
+    max-height: 100vh;
+    padding: 1em;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+}
+@media (min-width: 577px) and (max-width: 997px) {
+  .accordion {
+    padding: 2em 3em;
+  }
+  .accordion__title {
+    font-weight: bold;
+    font-size: 2em;
+  }
+  .mem-label {
+    font-size: 180%;
+    margin-bottom: 2em;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+  input:checked ~ .mem-content {
+    max-height: 100vh;
+    padding: 1.4em;
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 998px) {
+  .container {
+    width: 60vw;
+    min-height: 100vh;
+    background-color: rgb(245, 236, 220);
+    border: 0.4em solid lightgrey;
+    margin: 0 auto;
+  }
+  .accordion {
+    padding: 2em 3em;
+  }
+  .accordion__title {
+    font-weight: bold;
+    font-size: 2.5em;
+    z-index: 100;
+  }
+  .mem-content {
+    transform: scale(0);
+  }
+  .mem-label {
+    font-size: 1.2em;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    object-fit: cover;
+  }
+
+  input:checked ~ .mem-content {
+    max-height: 100vh;
+    padding: 0em;
+    transform: scale(0.9);
+  }
+  .accordion__mem:hover > .mem-content {
+    max-height: 100vh;
+    padding: 0em;
+    transform: scale(0.9);
+  }
+  .accordion__mem:hover .icon {
+    transition: all 0.5s;
+    rotate: 45deg;
+  }
+  .icon {
+    opacity: 0;
+  }
+  .accordion:hover .icon {
+    opacity: 1;
+  }
+  .mem-image {
+    cursor: pointer;
+  }
+  .accordion__body:hover {
+    color: black;
+  }
+}
